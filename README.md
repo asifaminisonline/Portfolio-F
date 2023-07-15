@@ -50,7 +50,7 @@ click here to visit: https://asifaminisonline.github.io/portfolio_website/
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/asifaminisonline/Portfolio-F/issues).
 
 ## Show your support
 
