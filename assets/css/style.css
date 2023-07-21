@@ -856,6 +856,10 @@ p {
 .dark-layout h6 {
 	color: var(--white);
 }
+.dark-layout h4{
+	padding-top: 20px;
+	text-align: center;
+}
 
 .dark-layout {
 	color: var(--white);
@@ -3715,6 +3719,7 @@ header.header-fixed .video-play-button.theme:after {
 
 .service-style-one-item h4 {
 	margin-bottom: 20px;
+	text-align: left !important;
 }
 
 /* Services Details */
