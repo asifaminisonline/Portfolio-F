@@ -1916,7 +1916,7 @@ aria-hidden="true"
                   Let's start a conversation and explore
                   the possibilities together."
                 </p>
-                <form action="https://formspree.io/f/mbjbpglg" method="POST" class="contact-form">
+                <form action="https://formspree.io/f/mbjbpglg" method="POST" class="contact-form" id="contactForm">
                   <div class="row">
                     <div class="col-lg-12">
                       <div class="form-group">
@@ -1949,13 +1949,15 @@ aria-hidden="true"
                     <div class="col-lg-6">
                       <div class="form-group">
                         <input
-                          class="form-control"
-                          id="phone"
-                          required
-                          name="phone"
-                          placeholder="Phone"
-                          type="number"
-                        />
+  class="form-control"
+  id="phone"
+  required
+  name="phone"
+  placeholder="Phone"
+  type="tel"
+  pattern="^\d{10,}$"
+  title="Please enter a valid phone number with at least 10 digits."
+/>
                         <span class="alert-error"></span>
                       </div>
                     </div>
@@ -1968,6 +1970,7 @@ aria-hidden="true"
                           id="comments"
                           name="comments"
                           placeholder="Tell Us About Project *"
+                          autocomplete="off"
                         ></textarea>
                       </div>
                     </div>
@@ -2100,5 +2103,64 @@ aria-hidden="true"
     <script src="assets/js/validnavs.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/reset.js"></script>
+    <script>
+      // Get the form element
+      const contactForm = document.getElementById('contactForm');
+      // Function to reset the form fields to empty
+      function resetFormFields() {
+        // Find all input and textarea elements inside the form
+        const formElements = contactForm.querySelectorAll('input, textarea');
+        // Loop through each element and set its value to empty
+        formElements.forEach((element) => {
+          element.value = '';
+        });
+      }
+      // Function to handle form submission
+      function handleFormSubmit(event) {
+        event.preventDefault(); // Prevent the default form submission behavior
+        // Perform form validation
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const phoneInput = document.getElementById('phone');
+        const commentsInput = document.getElementById('comments');
+        if (nameInput.value.trim() === '') {
+          alert('Please enter your name.');
+          nameInput.focus();
+          return;
+        }
+        if (emailInput.value.trim() === '') {
+          alert('Please enter your email.');
+          emailInput.focus();
+          return;
+        }
+        if (phoneInput.value.trim() === '') {
+          alert('Please enter your phone number.');
+          phoneInput.focus();
+          return;
+        }
+        if (commentsInput.value.trim() === '') {
+          alert('Please tell us about your project.');
+          commentsInput.focus();
+          return;
+        }
+        // If all fields are valid, proceed with form submission using AJAX or other methods
+        // For demonstration purposes, I will assume the form is successfully submitted
+        // and then reset the form fields.
+        // Simulate form submission success (remove this in a real application)
+        setTimeout(() => {
+          // Reset the form fields to empty
+          resetFormFields();
+          // Show a success message or do any other post-submission actions (if needed)
+          const messageElement = document.getElementById('message');
+          messageElement.innerText = 'Form submitted successfully!';
+          // Remove the success message after 10 seconds
+          setTimeout(() => {
+            messageElement.innerText = '';
+          }, 5000);
+        }, 1000); // Simulate a 1-second delay to simulate the server response time
+      }
+      // Add a form submit event listener
+      contactForm.addEventListener('submit', handleFormSubmit);
+    </script>
   </body>
 </html>

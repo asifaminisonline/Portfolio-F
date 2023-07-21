@@ -6493,3 +6493,7 @@ footer {
 		margin-top: 8px;
 	}
 }
+#message{
+	text-align: center;
+	padding-top: 20px;
+}
